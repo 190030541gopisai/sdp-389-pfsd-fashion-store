@@ -36,6 +36,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  -->
  
+ 
 </head>
 <body>
 
@@ -55,21 +56,38 @@
             <a href="#">Services</a>
             <a href="#">Clients</a>
             <a href="#">Contact</a>
-            <a href="{% url 'logout' %}" style="color: red;">Log out</a>
+            <!-- <a href="{% url 'logout' %}" style="color: red;">Log out</a> -->
         </div>
         <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
-        <a href="/home/"  style="float: left;">Fasio</a>
-        <a href="/home/"  style="float: left;">Mens</a>
-        <a href="/home/"  style="float: left;">Womens</a>
+        <a href="{% url 'home-index' %}"  style="float: left;">Fasio</a>
+        <a href="{% url 'mens' %}"  style="float: left;">Mens</a>
+        <a href="{% url 'womens' %}"  style="float: left;">Womens</a>
         <a href="/home/"  style="float: left;">Kids</a>
 
-        <a href="#"><i class="fa fa-fw fa-search" style="margin-left :650px;"></i> Search</a>
-        <a href="#"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
-        <!-- <i class="fa fa-fw fa-envelope" style="margin-left :20px;"></i> -->
-        <a href="#"><i class="fa fa-fw fa-user"></i> username</a>
+        <!-- <input type="text" > -->
+        <input style="width: 15%;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+        <button id="search-button" type="button" class="btn btn-primary">
+          <i class="fa fa-fw fa-search"></i>
+        </button>
         
-        <!-- <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div style="width: 650px;">
+
+        </div>
+        
+        
+        <!-- <i class="fa fa-fw fa-envelope" style="margin-left :20px;"></i> -->
+        
+        {% if user.is_authenticated %}
+          <a href="#"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+          <a href="#"><i class="fa fa-fw fa-user"></i> {{user.username}}</a>
+          <a href="{% url 'logout' %}" style="color: red;">Log out</a>
+        {% else %}
+          <a href="{% url 'login' %}" >Log In</a>
+          <a href="{% url 'register' %}" >Sign Up</a>
+        {% endif %}
+          <!-- <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Dropdown button
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
