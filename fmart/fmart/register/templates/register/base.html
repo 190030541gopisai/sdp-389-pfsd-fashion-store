@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<link rel="icon" href="{% static 'images/fasio.png'%}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong"/>
+    <style>
+        .id1{
+           font-family:Trirong;
+           text-align:center;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+    <meta charset="UTF-8">
+    <title>Fasio</title>
+
+
+    <!-- Bootstrap links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+<body >
+  
+
+
+  <h1 class="id1">Fasio</h1>
+  <div class="container" id="container">
+	<div style="text-align: center;margin:30px;">
+        <div style="text-align: center;" >
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+        </div>
+      <div>
+          <button><a href="{% url 'login' %}">Log In</a></button>
+          <button><a href="{% url 'register' %}">Sign Up</a></button>
+      </div>
+			{% block content %}
+			{% endblock content %}
+	  </div>
+  </div>
+</body>
+</html>
