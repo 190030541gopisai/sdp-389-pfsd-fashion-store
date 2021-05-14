@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
+def profile(request):
+	template_name='home/profile.html'
+	return render(request, template_name)
 
 def home(request):
 	template_name="home/index.html"
@@ -16,7 +21,7 @@ def home(request):
 		},
 		{	
 			'name':'T-shirts',
-			'image':'images/product_02.jpg',
+			'image':'images/img_1.png',
 			'price':'Rs.100',
 			'description':'some text',
 			'formaction':'T-shirts'

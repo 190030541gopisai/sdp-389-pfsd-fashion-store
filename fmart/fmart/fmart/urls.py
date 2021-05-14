@@ -17,10 +17,18 @@ from django.contrib import admin
 
 from django.urls import path, include
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
+    #admin default
     path('admin/', admin.site.urls),
+
+    #login register all in this path
     path('register/',include('register.urls')),
     #path('',include('login.urls')),
+
+    #home page with navbar and base.html for all other apps
     path('',include('home.urls')),
     
     #categories
@@ -28,6 +36,11 @@ urlpatterns = [
     path('women/',include('women.urls')),
     # path('kids/',include('kids.urls')),
 
+    #productcart
+    path('productcart/',include('productcart.urls')),
     
 
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

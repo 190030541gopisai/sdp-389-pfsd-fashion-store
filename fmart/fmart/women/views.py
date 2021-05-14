@@ -1,7 +1,17 @@
 from django.shortcuts import render
 
 # Create your views here.
+def kurtis(request):
+	template_name="women/kurtis.html"
+	return render(request, template_name)
 
+def sarees(request):
+	template_name="women/sarees.html"
+	return render(request, template_name)
+
+def lehangachouli(request):
+	template_name="women/lehangachouli.html"
+	return render(request, template_name)
 
 def womenshome(request):
 	categories=[
@@ -10,21 +20,21 @@ def womenshome(request):
 			'image':'images/Kurtis.png',
 			'price':'Rs.100',
 			'description':'some text',
-			'formaction':'Kurtis'
+			'formaction':'kurtis'
 		},
 		{	
 			'name':'Sarees',
 			'image':'images/Sarees.png',
 			'price':'Rs.100',
 			'description':'some text',
-			'formaction':'Sarees'
+			'formaction':'sarees'
 		},
 		{	
 			'name':'Lehangachouli',
 			'image':'images/Lehangachouli.png',
 			'price':'Rs.100',
 			'description':'some text',
-			'formaction':'Lehangachouli'
+			'formaction':'lehangachouli'
 		},
 		
 

@@ -38,14 +38,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'register',
-    'home',
+
+    #registration 
+    'register.apps.RegisterConfig',
+
+    #home or landing page with navbar
+    'home.apps.HomeConfig',
+
+    #sumanth created app 
     'login',
 
     #categories
-    'men',
-    'women',
-    'kids',
+    'men.apps.MenConfig',
+    'women.apps.WomenConfig',
+    'kids.apps.KidsConfig',
+
+    #cart
+    'productcart.apps.ProductcartConfig',
 
     #crispy forms
     'crispy_forms',
@@ -143,3 +152,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # config/settings.py
 LOGIN_REDIRECT_URL = 'home-index'
+LOGIN_URL = 'login'
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'
