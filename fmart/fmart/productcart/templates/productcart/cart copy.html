@@ -1,0 +1,171 @@
+{% load static %}
+{% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'productcart/cart.css' %}">
+    
+    
+    <!-- navbar stuff -->
+    
+    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/new.css'%}">
+    
+    
+    <!-- for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+</head>
+<body>
+  <!-- header starts -->
+  <div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>  
+<!-- ***** Preloader End ***** -->
+<div class="navbar">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/about/">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+        <!-- <a href="{% url 'logout' %}" style="color: red;">Log out</a> -->
+    </div>
+    <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+    <a href="{% url 'home-index' %}"  style="float: left;">Fasio</a>
+    <a href="{% url 'mens-home' %}"  style="float: left;">Mens</a>
+    <a href="{% url 'womens-home' %}"  style="float: left;">Womens</a>
+    <a href="/home/"  style="float: left;">Kids</a>
+
+    <!-- <input type="text" > -->
+    <input style="width: auto;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+aria-describedby="search-addon" />
+    <button id="search-button" type="button" class="btn btn-primary">
+      <i class="fa fa-fw fa-search"></i>
+    </button>
+    
+    <!-- <div style="width: 500px;">
+
+    </div> -->
+    
+    
+    <!-- <i class="fa fa-fw fa-envelope" style="margin-left :20px;"></i> -->
+    <!-- <div style="float: right;">
+      {% if user.is_authenticated %}
+      <a href="#"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+      <a href="{% url 'profile' %}"><i class="fa fa-fw fa-user"></i> {{user.username}}</a>
+      <a href="{% url 'logout' %}" style="color: red;">Log out</a>
+      {% else %}
+        <a href="{% url 'login' %}" >Log In</a>
+        <a href="{% url 'register' %}" >Sign Up</a>
+      {% endif %}
+
+    </div> -->
+    {% if user.is_authenticated %}
+       <a href="{% url 'cart' %}" style="margin-left: auto;"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a> 
+      <a href="{% url 'profile' %}"><i class="fa fa-fw fa-user"></i> {{user.username}}</a>
+      <a href="{% url 'logout' %}" style="color: red;"><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a>
+    {% else %}
+      <a href="{% url 'login' %}" style="margin-left: auto;">Log In</a>
+      <a href="{% url 'register' %}" >Sign Up</a>
+    {% endif %}
+      <!-- <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+      <div>
+        <label for="co<label for="country">Country</label>
+        <select id="country" name="country">
+        <option value="austra<label for="country">Country</label>
+        <select id="country" name="country">
+        <option value="australia">Australia</option>
+             <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+        </select>lia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+        </select>untry">Country</label>
+        <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+        </select>
+        
+      </div> -->
+    </div>
+
+
+    
+
+<div class="shopping-cart">
+  <h1>Shopping Cart</h1>
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+
+  <div class="product">
+    <div class="product-image">
+      <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+    </div>
+    <div class="product-details">
+      <div class="product-title">Dingo Dog Bones</div>
+      <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+    </div>
+    <div class="product-price">12.99</div>
+    <div class="product-quantity">
+      <input id="quantity" type="number" value="2" min="1">
+    </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remove
+      </button>
+    </div>
+    <div class="product-line-price">25.98</div>
+  </div>
+  
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal">71.97</div>
+    </div>
+    <div class="totals-item">
+      <label>Tax (5%)</label>
+      <div class="totals-value" id="cart-tax">3.60</div>
+    </div>
+    <div class="totals-item">
+      <label>Shipping</label>
+      <div class="totals-value" id="cart-shipping">15.00</div>
+    </div>
+    <div class="totals-item totals-item-total">
+      <label>Grand Total</label>
+      <div class="totals-value" id="cart-total">90.57</div>
+    </div>
+  </div>
+      
+      <button class="checkout">Checkout</button>
+
+      <script src="{% static 'cart.js' %}"></script>
+</div>
+</body>
+</html>
+{% endblock content1 %}

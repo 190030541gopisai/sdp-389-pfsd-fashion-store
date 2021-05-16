@@ -48,10 +48,13 @@ INSTALLED_APPS = [
     #sumanth created app 
     'login',
 
-    #categories
-    'men.apps.MenConfig',
-    'women.apps.WomenConfig',
-    'kids.apps.KidsConfig',
+    # #categories
+    # 'men.apps.MenConfig',
+    # 'women.apps.WomenConfig',
+    # 'kids.apps.KidsConfig',
+
+    #product
+    'product',
 
     #cart
     'productcart.apps.ProductcartConfig',

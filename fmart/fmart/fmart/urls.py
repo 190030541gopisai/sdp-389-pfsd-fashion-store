@@ -32,9 +32,12 @@ urlpatterns = [
     path('',include('home.urls')),
     
     #categories
-    path('men/',include('men.urls')),
-    path('women/',include('women.urls')),
+    # path('men/',include('men.urls')),
+    # path('women/',include('women.urls')),
     # path('kids/',include('kids.urls')),
+
+    #product
+    path('product/',include('product.urls')),
 
     #productcart
     path('productcart/',include('productcart.urls')),
