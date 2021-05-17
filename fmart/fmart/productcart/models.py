@@ -7,4 +7,4 @@ class Cart(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     
     def __str__(self):
-        return f'cart {self.id} {self.user.username}'
+        return f'cart {self.id} {self.user.username} {self.product.p_name}'

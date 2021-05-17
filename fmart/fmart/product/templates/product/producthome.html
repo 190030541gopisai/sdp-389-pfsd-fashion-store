@@ -1,7 +1,15 @@
 {% extends 'home/base.html' %}
 {% load static %}
-
 {% block content1 %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <link rel="stylesheet" type="text/css" href="{% static 'home/index.css'%}">
+    </head>
+    <body>
+      
+    </body>
+    </html>
     {% for catagory in categories %}
         <div class="card" style="float: left;display: flex;">
               <img src="{% static catagory.image %}" alt="{{ catagory.name }}" style="width:100%">

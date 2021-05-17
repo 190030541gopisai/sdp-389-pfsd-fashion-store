@@ -51,3 +51,5 @@ class Profile(models.Model):
  
     def __str__(self):
         return f'{self.user.username} Profile' #for display name in admin panel
+
+

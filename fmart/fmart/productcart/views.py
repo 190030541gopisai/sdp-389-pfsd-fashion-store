@@ -16,7 +16,7 @@ from django.views.generic import (
 def cartView(request):
     template_name = 'productcart/cart.html'
     username = request.user.username
-    carts = Cart.objects.filter(user__username=username)
+    carts = Cart.objects.filter(user__username=username).order_by('-id')
     context={
         'carts':carts,
     }
@@ -26,11 +26,12 @@ def cartView(request):
 def addcart(request,**kwargs):
     user = request.user
     p_name=kwargs['product'].capitalize()
-    product = Product.objects.filter(p_name__exact=p_name).first()
+    product = Product.objects.filter(p_name__iexact=p_name).first()
     print(p_name)
     print("product",user,product)
     try:
-        cartexist = Cart.objects.filter(product=product).first()
+        cartexist = Cart.objects.filter(user__exact=user,product__exact=product).first()
+        print(cartexist)
         if(user and product and not(cartexist)):
             Cart.objects.create(user=user,product=product)
             # return HttpResponse('success')

@@ -41,6 +41,9 @@ urlpatterns = [
 
     #productcart
     path('productcart/',include('productcart.urls')),
+
+    #payment
+    path('payment/',include('payment.urls')),
     
 
 ]

@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
+from django.views.generic import TemplateView
 # Create your views here.
+
+class MenuView(TemplateView):
+	template_name = "home/about.html"
+
+
 @login_required
 def profile(request):
 	template_name='home/profile.html'

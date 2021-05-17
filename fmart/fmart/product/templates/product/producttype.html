@@ -7,9 +7,9 @@
             <h1>{{ p.p_name }}</h1>
             <p class="price">Rs. {{ p.p_cost }}</p>
             <p>{{p.p_description}}</p>
-            <form action="/payment/">
+            <form action="{% url 'payment' %}">
                 <button class="btn btn-secondary btn-lg" style="float:left"><span><a style="color:white;" href="{% url 'addcart' user=user.username product=p.p_name %}">Add to cart</a> </span></button>
-                <button class="btn btn-primary btn-lg" style="float:right"><span><a style="color:white;" href="#">Buy Now</a></span></button>
+                <button type="submit" class="btn btn-primary btn-lg" style="float:right"><span>Buy Now</span></button>
      
                 <!-- <p><button class="button" style="vertical-align:middle"><span>Buy Now</span></button></p> -->
             </form>

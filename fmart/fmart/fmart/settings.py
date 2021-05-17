@@ -59,6 +59,9 @@ INSTALLED_APPS = [
     #cart
     'productcart.apps.ProductcartConfig',
 
+    #payment
+    'payment.apps.PaymentConfig',
+
     #crispy forms
     'crispy_forms',
 
