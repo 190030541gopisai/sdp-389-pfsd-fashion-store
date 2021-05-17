@@ -10,57 +10,23 @@
  
 <div class="shopping-cart">
   <h1>Shopping Cart</h1>
-  <div class="column-labels">
-    <label class="product-image">Image</label>
-    <label class="product-details">Product</label>
-    <!-- <label class="product-price">Price</label> -->
-    <!-- <label class="product-quantity">Quantity</label> -->
-    <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
-  </div>
-
-  <div class="product">
-    <div class="product-image">
-      <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
-    </div>
-    <div class="product-details">
-      <div class="product-title">Dingo Dog Bones</div>
-      <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
-    </div>
-    <!-- <div class="">12.99</div> -->
-    <!-- <div class="product-quantity">
-      <input id="quantity" type="number" value="2" min="1">
-    </div> -->
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">25.98</div>
-  </div>
-  
-  <div class="totals">
-    <div class="totals-item">
-      <label>Subtotal</label>
-      <div class="totals-value" id="cart-subtotal">71.97</div>
-    </div>
-    <div class="totals-item">
-      <label>Tax (5%)</label>
-      <div class="totals-value" id="cart-tax">3.60</div>
-    </div>
-    <div class="totals-item">
-      <label>Shipping</label>
-      <div class="totals-value" id="cart-shipping">15.00</div>
-    </div>
-    <div class="totals-item totals-item-total">
-      <label>Grand Total</label>
-      <div class="totals-value" id="cart-total">90.57</div>
-    </div>
-  </div>
-      
-      <button class="checkout">Checkout</button>
-
-      <script src="{% static 'cart.js' %}"></script>
+  {% for c in carts %}
+      <div class="product">
+        <div class="product-image" >
+          <!-- <img  src="{% static 'images/formals5.png' %}"> -->
+           <img  src="{{ c.product.p_image.url }}">
+        </div>
+        <div class="product-details">
+          <div class="product-title">{{ c.product.p_name }}</div>
+          <p class="product-description">{{ c.product.p_description }}</p>
+        </div>
+        <div class="product-price btn btn-dark"> {{ c.product.p_cost }}</div>
+        <div style="float: right;">
+          <button type="button" class="btn btn-primary  btn-lg" ><a href="#">buy</a></button>
+          <button type="button" class="btn btn-danger"><a href="#">remove</a></button>
+        </div>
+      </div>
+  {% endfor %}
 </div>
 </body>
 </html>

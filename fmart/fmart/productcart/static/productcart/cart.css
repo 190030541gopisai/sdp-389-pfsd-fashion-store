@@ -62,7 +62,7 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   /* Apply clearfix in a few places */
   /* Apply dollar signs */
   .product .product-price:before, .product .product-line-price:before, .totals-value:before {
-    content: '$';
+    content: 'Rs';
   }
   
   /* Body/Header stuff */
@@ -96,9 +96,11 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   
   /* Product entries */
   .product {
+    border: 1px solid black;
+    box-shadow: -4px 4px 4px rgb(23, 201, 201);
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
   }
   .product .product-image {
     text-align: center;
@@ -113,6 +115,7 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   .product .product-details .product-description {
     margin: 5px 20px 5px 0;
     line-height: 1.4em;
+    width: 800px;
   }
   .product .product-quantity input {
     width: 40px;
@@ -247,3 +250,11 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
     margin: 15px;
     padding: 15px;
   }
+  a{
+    color:white;
+    text-decoration:none;
+  }
+a:hover{
+  color:white;
+
+}

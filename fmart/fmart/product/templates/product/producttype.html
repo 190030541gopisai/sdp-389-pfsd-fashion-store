@@ -1,6 +1,5 @@
 {% extends 'home/base.html' %}
 {% load static %}
-
 {% block content1 %}
     {% for p in products %}
         <div class="card">
@@ -9,9 +8,9 @@
             <p class="price">Rs. {{ p.p_cost }}</p>
             <p>{{p.p_description}}</p>
             <form action="/payment/">
-                <button class="btn btn-secondary btn-lg" style="float:left"><span>Add to cart</span></button>
-                <button class="btn btn-primary btn-lg" style="float:right"><span>Buy Now</span></button>
-                
+                <button class="btn btn-secondary btn-lg" style="float:left"><span><a style="color:white;" href="{% url 'addcart' user=user.username product=p.p_name %}">Add to cart</a> </span></button>
+                <button class="btn btn-primary btn-lg" style="float:right"><span><a style="color:white;" href="#">Buy Now</a></span></button>
+     
                 <!-- <p><button class="button" style="vertical-align:middle"><span>Buy Now</span></button></p> -->
             </form>
         </div>
