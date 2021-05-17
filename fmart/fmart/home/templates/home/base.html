@@ -74,11 +74,19 @@
         
 
         <!-- <input type="text" > -->
-        <input style="width: auto;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+        <!-- <input style="width: auto;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
     aria-describedby="search-addon" />
         <button id="search-button" type="button" class="btn btn-primary">
           <i class="fa fa-fw fa-search"></i>
-        </button>
+        </button> -->
+        <form class="form-inline">
+          <div class="input-group">
+            <input type="search" class="form-control" size="50" placeholder="Search.." required>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search"></i></button>
+            </div>
+          </div>
+        </form>
         
         <!-- <div style="width: 500px;">
 

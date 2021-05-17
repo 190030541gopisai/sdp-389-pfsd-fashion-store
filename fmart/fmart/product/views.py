@@ -4,6 +4,10 @@ from django.views.generic import ListView,DetailView,TemplateView
 from home.models import (
 	Product
 )
+
+# class ProductDetailView(DetailView):
+# 	model = Product
+
 def producttype(request,p_type,p_category):
 	template_name='product/producttype.html'
 	p_type = p_type.capitalize()
