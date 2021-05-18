@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     #product
     'product',
 
+    #orders after paying the bill
+    'orders',
+
     #cart
     'productcart.apps.ProductcartConfig',
 

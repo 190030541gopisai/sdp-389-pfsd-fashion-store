@@ -63,6 +63,8 @@
             <a href="{% url 'about' %}">About</a>
             <a href="{% url 'clients' %}">Clients</a>
             <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'orders' %}">Orders</a>
+
             <!-- <a href="{% url 'logout' %}" style="color: red;">Log out</a> -->
         </div>
         <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
@@ -79,7 +81,7 @@
         <button id="search-button" type="button" class="btn btn-primary">
           <i class="fa fa-fw fa-search"></i>
         </button> -->
-        <form class="form-inline">
+        <form method="get" class="form-inline">
           <div class="input-group">
             <input type="search" class="form-control" size="50" placeholder="Search.." required>
             <div class="input-group-btn">

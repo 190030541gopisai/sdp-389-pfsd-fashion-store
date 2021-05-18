@@ -43,6 +43,9 @@ urlpatterns = [
 
     #payment
     path('payment/',include('payment.urls')),
+
+    #paid orders
+    path('orders/',include('orders.urls')),
     
 
 ]

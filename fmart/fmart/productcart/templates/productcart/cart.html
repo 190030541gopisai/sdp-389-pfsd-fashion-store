@@ -22,7 +22,7 @@
         </div>
         <div class="product-price btn btn-dark"> {{ c.product.p_cost }}</div>
         <div style="float: right;">
-          <button type="button" class="btn btn-primary  btn-lg" ><a href="#">buy</a></button>
+          <a class="btn btn-primary  btn-lg" href="{% url 'payment' c.product.id %}">buy</a>
           <button type="button" class="btn btn-danger"><a href="{% url 'delete-cart' c.id %}">remove</a></button>
         </div>
       </div>

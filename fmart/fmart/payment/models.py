@@ -10,6 +10,8 @@ class Address(models.Model):
     city = models.CharField(max_length=10)
     zip = models.IntegerField()
     state = models.CharField(max_length=20)
+    def __str__(self):
+        return f'{self.user.username}'
 
     # def clean_zip(self):
     #     data = self.cleaned_data['zip']
@@ -21,8 +23,8 @@ class Address(models.Model):
     #     return data
     
 
-    def __str__(self):
-        return f'{self.name} {self.product.p_name} {self.city}'
+    # def __str__(self):
+    #     return f'{self.user.username} {self.product.p_name} {self.city}'
 
 
 class Card(models.Model):
@@ -32,6 +34,9 @@ class Card(models.Model):
     exp_month = models.IntegerField()
     exp_year = models.IntegerField()
     cvv = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.user} {self.credit_card_number}'
 
     # def clean_credit_card_number(self):
     #     data = self.cleaned_data['credit_card_number']
@@ -44,4 +49,9 @@ class Payment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     address = models.ForeignKey(Address,on_delete=models.CASCADE)
     card = models.ForeignKey(Card,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,default=None,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.user.username} {self.product.p_name}'
+
     
