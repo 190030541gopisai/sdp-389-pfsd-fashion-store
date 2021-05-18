@@ -1,0 +1,33 @@
+{% extends 'home/base.html'%}
+{% load static %}
+{% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'productcart/cart.css' %}">
+</head>
+<body>
+ 
+<div class="shopping-cart">
+  <h1>Shopping Cart</h1>
+  {% for c in carts %}
+      <div class="product">
+        <div class="product-image" >
+          <!-- <img  src="{% static 'images/formals5.png' %}"> -->
+           <img  src="{{ c.product.p_image.url }}">
+        </div>
+        <div class="product-details">
+          <div class="product-title">{{ c.product.p_name }}</div>
+          <p class="product-description">{{ c.product.p_description }}</p>
+        </div>
+        <div class="product-price btn btn-dark"> {{ c.product.p_cost }}</div>
+        <div style="float: right;">
+          <button type="button" class="btn btn-primary  btn-lg" ><a href="#">buy</a></button>
+          <button type="button" class="btn btn-danger"><a href="#">remove</a></button>
+        </div>
+      </div>
+  {% endfor %}
+</div>
+</body>
+</html>
+{% endblock content1 %}

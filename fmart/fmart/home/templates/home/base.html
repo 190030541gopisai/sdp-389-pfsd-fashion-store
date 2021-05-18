@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'home/index.css'%}">
+
+
+	<!-- 
+		sumanth css files for nav bar
+	-->
+	  <link rel="icon" href="{% static 'images/fasio.png'%}"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"> -->
+
+    <title>Fasio Clothing Products</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+
+    
+
+    
+    <!-- Additional CSS Files -->
+    <!-- <link rel="stylesheet" href="{% static 'css/fontawesome.css'%}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/owl.css'%}"> -->
+    
+<!-- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ -->
+
+    <!-- navbar stuff -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/new.css'%}">
+    
+    
+    <!-- for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+ 
+</head>
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+	<div class="navbar">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'clients' %}">Clients</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <!-- <a href="{% url 'logout' %}" style="color: red;">Log out</a> -->
+        </div>
+        <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776;</span>
+        <a href="{% url 'home-index' %}"  style="float: left;">Fasio</a>
+        
+        <a href="{% url 'mens-home' %}"  style="float: left;">Mens</a>
+        <a href="{% url 'womens-home' %}"  style="float: left;">Womens</a>
+        <a href="{% url 'kids-home' %}"  style="float: left;">Kids</a>
+        
+
+        <!-- <input type="text" > -->
+        <!-- <input style="width: auto;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+        <button id="search-button" type="button" class="btn btn-primary">
+          <i class="fa fa-fw fa-search"></i>
+        </button> -->
+        <form class="form-inline">
+          <div class="input-group">
+            <input type="search" class="form-control" size="50" placeholder="Search.." required>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+        
+        <!-- <div style="width: 500px;">
+
+        </div> -->
+        
+        
+        <!-- <i class="fa fa-fw fa-envelope" style="margin-left :20px;"></i> -->
+        <!-- <div style="float: right;">
+          {% if user.is_authenticated %}
+          <a href="#"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+          <a href="{% url 'profile' %}"><i class="fa fa-fw fa-user"></i> {{user.username}}</a>
+          <a href="{% url 'logout' %}" style="color: red;">Log out</a>
+          {% else %}
+            <a href="{% url 'login' %}" >Log In</a>
+            <a href="{% url 'register' %}" >Sign Up</a>
+          {% endif %}
+
+        </div> -->
+        {% if user.is_authenticated %}
+          <!-- product cart cart -->
+          <a href="{% url 'cart' %}" style="margin-left: auto;"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+         
+          <!--profile page in home app  -->
+          <a href="{% url 'profile' %}"><i class="fa fa-fw fa-user"></i> {{user.username}}</a>
+          <!-- register app -->
+          <a href="{% url 'logout' %}" style="color: red;"><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a>
+        {% else %}
+          <!-- register app -->
+          <a href="{% url 'login' %}" style="margin-left: auto;">Log In</a>
+          <a href="{% url 'register' %}" >Sign Up</a>
+        {% endif %}
+          <!-- <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <div>
+            <label for="co<label for="country">Country</label>
+            <select id="country" name="country">
+            <option value="austra<label for="country">Country</label>
+            <select id="country" name="country">
+            <option value="australia">Australia</option>
+                 <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            </select>lia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            </select>untry">Country</label>
+            <select id="country" name="country">
+            <option value="australia">Australia</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+            </select>
+            
+          </div> -->
+    </div>
+
+    <!--end header -->
+    <!-- <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">CSS</a></li>
+          <li><a href="#">JavaScript</a></li>
+        </ul>
+    </div> -->
+
+    <div class="flex-container">
+            {% block content1 %}
+            {% endblock content1 %}
+    </div>
+
+	
+
+	<script type="text/javascript" src=" {% static 'home/index.js'%}"></script>
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{%static 'home/script/custom.js'%}"></script>
+    <script src="{% static 'home/script/js/owl.js' %}"></script>
+    <script src="{% static 'home/script/js/slick.js' %}"></script>
+    <script src="{% static 'home/script/js/isotope.js' %}"></script>
+    <script src="{% static 'home/script/js/accordions.js' %}"></script>
+    <script src="{% static 'home/script/new.js'%}"></script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+</body>
+</html>

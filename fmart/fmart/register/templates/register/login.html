@@ -1,0 +1,17 @@
+{% extends 'register/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Log In</h1>
+
+    <div style="text-align: center;">
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Log in</button>
+            </div>
+        </form>
+    </div>
+    
+    
+{% endblock content %}
