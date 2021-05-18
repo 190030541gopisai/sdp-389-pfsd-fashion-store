@@ -3,6 +3,10 @@ from django.shortcuts import render,redirect,HttpResponse,Http404
 from django.contrib.auth.decorators import login_required
 from .models import Cart
 from home.models import Product
+from django.views.generic import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
+
+from django.contrib import messages
 from django.views.generic import (
     TemplateView
 )
@@ -11,6 +15,13 @@ from django.views.generic import (
 
 # class CartView(TemplateView):
 #     template_name = 'productcart/cart.html'
+# 
+class DeleteCartView(LoginRequiredMixin,DeleteView):
+    model = Cart
+    # template_name = "productcart/deletecart.html"
+    # messages.success(request, 'Profile details updated.')
+    success_url ='/productcart'
+
 
 @login_required
 def cartView(request):
