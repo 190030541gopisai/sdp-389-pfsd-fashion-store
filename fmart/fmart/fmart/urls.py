@@ -26,7 +26,6 @@ urlpatterns = [
 
     #login register all in this path
     path('register/',include('register.urls')),
-    #path('',include('login.urls')),
 
     #home page with navbar and base.html for all other apps
     path('',include('home.urls')),

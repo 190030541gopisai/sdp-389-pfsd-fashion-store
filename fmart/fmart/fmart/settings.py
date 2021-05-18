@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
 
     #sumanth created app 
-    'login',
 
     # #categories
     # 'men.apps.MenConfig',
