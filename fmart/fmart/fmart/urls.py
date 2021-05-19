@@ -47,6 +47,7 @@ urlpatterns = [
     #paid orders
     path('orders/',include('orders.urls')),
     
+    path('search/',include('search.urls'))
 
 ]
 

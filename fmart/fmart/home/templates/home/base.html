@@ -81,11 +81,12 @@
         <button id="search-button" type="button" class="btn btn-primary">
           <i class="fa fa-fw fa-search"></i>
         </button> -->
-        <form method="get" class="form-inline">
+       
+        <form method="get" action="{% url 'search-product' %}" class="form-inline">
           <div class="input-group">
-            <input type="search" class="form-control" size="50" placeholder="Search.." required>
+            <input type="search" name="query" class="form-control" size="50" placeholder="Search.." required>
             <div class="input-group-btn">
-              <button type="button" class="btn btn-primary"><i class="fa fa-fw fa-search"></i></button>
+              <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-search"></i></button>
             </div>
           </div>
         </form>
@@ -166,7 +167,6 @@
             {% block content1 %}
             {% endblock content1 %}
     </div>
-
 	
 
 	<script type="text/javascript" src=" {% static 'home/index.js'%}"></script>

@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from django.db.backends.mysql.base import DatabaseWrapper
+
+DatabaseWrapper.data_types['DateTimeField'] = 'datetime'
+
+
+ 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,6 +70,8 @@ INSTALLED_APPS = [
     #payment
     'payment.apps.PaymentConfig',
 
+    'search',
+
     #crispy forms
     'crispy_forms',
 
@@ -104,9 +112,16 @@ WSGI_APPLICATION = 'fmart.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoproject',
+        'USER': 'root',
+        'PASSWORD' : 'root',
+        'PORT' : 3306
     }
 }
 

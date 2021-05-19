@@ -1,0 +1,47 @@
+{% extends 'home/base.html'%}
+{% load static %}
+{% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'productcart/cart.css' %}">
+</head>
+<body>
+ 
+<div class="shopping-cart">
+    {% if products %}
+            <h1>Search results -- {{count}}</h1>
+            {% for product in products %}
+                <div class="product">
+                    <div class="product-image" >
+                    <!-- <img  src="{% static 'images/formals5.png' %}"> -->
+                    <img  src="{{ product.p_image.url }}">
+                    </div>
+                    <div class="product-details">
+                    <div class="product-title">{{ product.p_name }}</div>
+                    <p class="product-description">{{ product.p_description }}</p>
+                    </div>
+                    <div class="btn btn-dark"> {{ product.p_cost }}</div>
+                    
+                    <form action="{% url 'payment' product.id %}">
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-secondary btn-lg" style="float:left"><span><a style="color:white;" href="{% url 'addcart' user=user.username product=product.p_name %}">Add to cart</a> </span></button>
+                            <button type="submit" class="btn btn-primary btn-lg" style="float:right;" ><span>Buy Now</span></button>
+                        {% else %}
+                            <button type="submit" class="btn btn-primary btn-lg"><span>Buy Now</span></button> 
+                        {% endif %}
+                        <!-- <p><button class="button" style="vertical-align:middle"><span>Buy Now</span></button></p> -->
+                    </form>
+                </div>
+            {% endfor %}
+    {% else %}
+        <h2 style="color: red;">No results</h2>
+    {% endif %}
+
+</div>
+</body>
+</html>
+{% endblock content1 %}
+
+
+
