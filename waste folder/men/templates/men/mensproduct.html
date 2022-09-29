@@ -1,0 +1,20 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content1 %}
+    {% for p in products %}
+        <div class="card">
+            <img src="{{ p.p_image.url  }}" alt="{{ p.p_name }}" style="width:100%">
+            <h1>{{ p.p_name }}</h1>
+            <p class="price">Rs. {{ p.p_cost }}</p>
+            <p>{{p.p_description}}</p>
+            <form action="/payment/">
+                <button class="btn btn-secondary btn-lg" style="float:left"><span>Add to cart</span></button>
+                <button class="btn btn-primary btn-lg" style="float:right"><span>Buy Now</span></button>
+                
+                <!-- <p><button class="button" style="vertical-align:middle"><span>Buy Now</span></button></p> -->
+            </form>
+        </div>
+    {% endfor %}    
+{% endblock content1 %}
+

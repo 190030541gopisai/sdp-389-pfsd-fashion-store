@@ -1,0 +1,63 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+  margin: 0px 100px 0px 100px;
+}
+a{
+  color:white;
+  text-decoration:none;
+}
+
+</style>
+</head>
+<body >
+
+<div>   
+  
+    
+    <h1>Product Details</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Category</th>
+          <th scope="col">Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ object.p_name }}</td>
+          <td>{{ object.p_type }}</td>
+          <td>{{ object.p_category }}</td>
+          <td>{{ object.p_cost }}</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    
+    <form method="post">
+      {% csrf_token %}
+        {{form1|crispy}}
+        {{form2|crispy}}
+        <div style="width: 500px;text-align: center;">
+            <button type="submit" style="float: left; width: 50%;;" class="btn btn-primary">Proceed</button>
+            <a type="submit" style="color:white;float:left; width: 50%;" class="btn btn-danger" href="{% url 'home-index' %}">Cancel</a>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

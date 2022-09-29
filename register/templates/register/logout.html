@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>Log out</title>
+    <style>
+        a{
+            color:white;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+        <div style="text-align:center;">
+            <h2>You have logged out</h2><br>
+            
+            <button  class="btn btn-success"><a href="{% url 'login' %}">login again</a></button>
+        </div>
+</body>
+</html>
+ 
+{% endblock content1 %}

@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content1 %}
+  <div class="text-center  d-flex justify-content-center">
+    {% for catagory in categories %}
+        <div class="card" style="float: left;width: 18rem;">
+          <div class="embed-responsive">
+              <img class="card-img-top img-fluid" src="{% static catagory.image %}" alt="{{ catagory.name }}" style="width:100%">
+          </div>
+              <h1>{{ catagory.name }}</h1>
+              <p class="price">{{ catagory.price }}</p>
+              <p>{{ catagory.description }}</p>
+              <form action="{% url formaction p_type=type p_category=catagory.name %}">
+                <p><button class="btn btn-primary"><span>See More</span></button></p>
+              </form>
+        </div>
+    {% endfor %}
+  </div>
+{% endblock content1 %}

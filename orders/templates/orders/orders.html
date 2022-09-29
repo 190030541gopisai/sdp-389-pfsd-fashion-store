@@ -1,0 +1,67 @@
+{% extends 'home/base.html'%}
+{% load static %}
+{% block content1 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'productcart/cart.css' %}">
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+</head>
+<body>
+  {% if orders %}
+  <table class="table">
+    <caption>Table Caption</caption>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">order id</th>
+        <th scope="col">Product Image</th>
+        
+        <th scope="col">Product Name</th>
+        <th scope="col">Cost</th>
+        <!-- <th scope="col">size</th> -->
+        <th scope="col">status</th>
+        <th scope="col">ordered date</th>
+        <th scope="col">delivery date</th>
+
+      </tr>
+    </thead>
+    <tbody>
+     {% for o in orders %}
+      <tr>
+        <th scope="row">{{o.id}}</th>
+        <td class="product-image"><img style="width:150px;height:200px;" src="{{o.payment.product.p_image.url}}" alt=""></td>
+        
+        <td>{{ o.payment.product.p_name }}</td>
+        <td>{{ o.payment.product.p_cost }}</td>
+        <td>{{ o.order_status }}</td>
+        <td>{{ o.order_date }}</td>
+        <td>{{ o.shipping_date }}</td>
+        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  {% else %}
+      <h1 style="color: red;">No Orders Yet</h1>
+  {% endif %}
+
+</body>
+</html>
+{% endblock content1 %}

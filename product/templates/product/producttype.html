@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content1 %}
+  <div class="text-center ml-4" >
+    
+     {% for p in products %}
+        <div class="mr-2" style="float:left;">
+          <div class="card" style="width: 18rem;">
+            <div class="embed-responsive">
+              <img class="card-img-top img-fluid" src="{{ p.p_image.url  }}" alt="{{ p.p_name }}" style="width:100%">
+            </div>
+            <div class="card-body">
+              <h1 class="card-title">{{ p.p_name }}</h1>
+              <p  class="card-subtitle price">Rs. {{ p.p_cost }}</p>
+              <p class="card-text">{{p.p_description}}</p>
+              <form action="{% url 'payment' p.id %}">
+                  {% if user.is_authenticated %}
+                      <button class="btn btn-secondary" ><span><a style="color:white;" href="{% url 'addcart' user=user.username product=p.p_name %}">Add to cart</a> </span></button>
+                      <button type="submit" class="btn btn-primary" style="float:right;" ><span>Buy Now</span></button>
+                  {% else %}
+                      <button type="submit" class="btn btn-primary"><span>Buy Now</span></button> 
+                  {% endif %}
+                  <!-- <p><button class="button" style="vertical-align:middle"><span>Buy Now</span></button></p> -->
+              </form>
+            </div>
+        </div>
+        </div>
+    {% endfor %}  
+  </div> 
+{% endblock content1 %}
+

@@ -1,0 +1,38 @@
+{% extends 'home/base.html' %} {% load static %} {% block content1 %}
+<div>
+  <div class="card-columns">
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="{% static 'home/images/about1.jpg'%}"
+        alt="Gopi Sai"
+        style="width: 100%"
+      />
+      <div class="card-body">
+        <h4 class="card-title">Gottipati Gopi Sai</h4>
+        <p class="card-subtitle">Team lead & backend developer</p>
+        <p class="card-text">190030541@gmail.com</p>
+        <form action="/contact/">
+          <p><button class="btn btn-dark">Contact</button></p>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        class="card-img-top img-fluid"
+        src="{% static 'home/images/about2.jpg'%}"
+        alt="Gopi Sai"
+        style="width: 100%"
+      />
+      <div class="card-body">
+        <h4 class="card-title">Gedala Bhanu Prakash</h4>
+        <p class="card-subtitle">Front End developer</p>
+        <p class="card-text">190030493@gmail.com</p>
+        <form action="/contact/">
+          <p><button class="btn btn-dark">Contact</button></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content1 %}
