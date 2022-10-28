@@ -35,7 +35,11 @@ python manage.py runserver
 ```
 
 ## If you want to deploy to the server Like Amazon - EC2
-below command makes the server not to go into sleep even if you close the server and keep it running
+below command makes the server not to go into sleep even if you close the server and keep it running 
 ```
 screen -d -m python manage.py runserver 0.0.0.0:8000
 ```
+map the Custom TCP port number to 8000 in Security Groups
+![image](https://user-images.githubusercontent.com/75208548/198680620-5656f637-0e25-47bf-bba5-d81a43926561.png)
+
+
